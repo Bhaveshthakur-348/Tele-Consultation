@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  button { cursor: pointer; border: none; background: none; font-family: inherit; }
+  input, select, textarea { font-family: inherit; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #E2E2E8; border-radius: 99px; }
+  .dark ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); }
+}
+
+@layer components {
+  /* Logo gradient */
+  .logo-gradient {
+    background: linear-gradient(135deg, #0062FF, #18DCAB);
+  }
+
+  /* Sidebar active item */
+  .sb-active {
+    background: #EEF3FF;
+    color: #0062FF;
+    border-left: 2px solid #0062FF;
+    font-weight: 600;
+  }
+  .dark .sb-active {
+    background: rgba(0,98,255,0.18);
+    color: #fff;
+  }
+
+  /* Primary CTA */
+  .btn-primary {
+    @apply bg-brand-blue text-white px-4 py-1.5 rounded text-xs font-semibold transition-colors;
+  }
+  .btn-primary:hover { @apply bg-brand-blue-hover; }
+  .btn-primary:disabled { @apply bg-clinical-border text-clinical-muted cursor-not-allowed; }
+
+  /* Disabled Join */
+  .btn-join-off {
+    @apply bg-white text-clinical-muted border border-clinical-border px-4 py-1.5 rounded text-xs font-normal cursor-not-allowed;
+  }
+  .dark .btn-join-off {
+    @apply bg-white/5 text-dark-muted border-white/10;
+  }
+
+  /* Ghost link style */
+  .btn-link {
+    @apply text-brand-blue text-xs underline underline-offset-2 bg-none border-none cursor-pointer;
+  }
+  .dark .btn-link { @apply text-dark-secondary; }
+
+  /* Form input */
+  .cc-input {
+    @apply w-full border border-clinical-border rounded-md px-3 py-2 text-sm text-clinical-navy outline-none
+           focus:border-brand-blue transition-colors bg-white;
+  }
+  .dark .cc-input {
+    @apply bg-dark-topbar border-white/10 text-dark-text;
+  }
+
+  /* Worklist row hover */
+  .wl-row {
+    @apply grid items-center border-b border-clinical-border-light
+           px-4 min-h-[46px] transition-colors duration-100 cursor-default;
+    grid-template-columns: 1fr 110px 140px 200px;
+  }
+  .wl-row:hover { @apply bg-blue-50; }
+  .wl-row:last-child { @apply border-b-0; }
+  .dark .wl-row { @apply border-white/5; }
+  .dark .wl-row:hover { @apply bg-white/5; }
+}
